@@ -1,0 +1,193 @@
+/* Variables */
+:root {
+    /* Colors */
+    /* Primary */
+    --veryDarkBlue: hsl(233, 47%, 7%);
+    --darkDesaturatedBlue: hsl(244, 38%, 16%);
+    --softViolet: hsl(277, 64%, 61%);
+    /* Neutral */
+    --white: hsl(0, 0%, 100%);
+    --slightyTransparentWhiteParagraph: hsla(0, 0%, 100%, 0.75);
+    --slightyTransparentWhiteHeadings: hsla(0, 0%, 100%, 0.6);
+
+    /* Fonts */
+    --primaryFont: 'Inter', sans-serif;
+    --secondaryFont: font-family: 'Lexend Deca', sans-serif;
+}
+
+
+/* Globals */
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    font-size: 1.5rem;
+    font-family: var(--primaryFont);
+    background-color: var(--veryDarkBlue);    
+    color: var(--white);
+}
+
+.container {
+    background-color: var(--darkDesaturatedBlue);
+    border-radius: 1.5rem;
+    position: absolute; /*Can also be `fixed`*/
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    /*Solves a problem in which the content is being cut when the div is smaller than its' wrapper:*/
+    max-width: 90%;
+    max-height: 80%;
+    overflow: auto;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    /* grid-column: 1 / 3;
+    grid-row: 2 / 3; */
+    
+}
+
+@media (min-width: 376px) {
+    .container {
+        width: 80%;
+        height: 60%;
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        width: 80%;
+        height: 60%;
+    }
+}
+
+.content {
+    padding: 2rem;
+    text-align: center;
+    grid-column: 1 / 3;
+    width: auto;
+    height: auto;
+    grid-column: 1 / 3;
+    grid-row: 2 / 3;
+}
+
+@media (min-width: 992px) {
+    .content {
+        grid-column: 1 / 2;
+        grid-row: 1 / 3;
+        /* padding-left: 10rem; */
+        align-items: center;
+        padding-right: 10rem;
+        padding-left: 10rem;
+    }    
+}
+
+.title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+
+@media (min-width: 992px) {
+    .title {
+        text-align: left;
+        /* padding-right: 10rem; */
+    }
+}
+
+.title span {
+    color: var(--softViolet);
+}
+
+.description {
+    font-family: var(--secondaryFont);
+    color: var(--slightyTransparentWhiteParagraph);
+    line-height: 2.5rem;
+    margin: 0 auto;
+}
+
+@media (min-width: 992px) {
+    .description {
+        text-align: left;
+        /* padding-right: 10rem; */
+    }
+}
+
+.stats {
+    text-align: center;
+}
+
+@media (min-width: 992px) {
+    .stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 0.5rem;
+        padding-top: 5rem;
+        text-align: left;
+    }    
+}
+
+.stats-heading {
+    font-size: 2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.stats-paragraph {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    color: var(--slightyTransparentWhiteParagraph);
+    font-family: var(--secondaryFont);
+}
+
+.image {
+    grid-column: 1 / 3;
+    grid-row: 1 / 2;
+    position: relative;
+}
+
+.mobile-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+
+.desktop-image {
+    display: none;
+}
+
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: hsl(277deg 96% 51% / 51%);
+}
+
+@media (min-width: 992px) {
+    .image {
+        grid-column: 2 / 3;
+        grid-row: 1 / 3;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .mobile-image {
+        display: none;
+    }
+
+    .desktop-image {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: fill;
+    }
+}
+
+
